@@ -21,11 +21,10 @@ public class MainActivity extends AppCompatActivity {
 
         List<DataModel> dm = new ArrayList<>();
 
-        dm.add(new DataModel("One", "#00ffff", 100));
-        dm.add(new DataModel("Two", "#74EEA1", 250));
-        dm.add(new DataModel("Three", "#f2002f", 100));
-        dm.add(new DataModel("four", "#B61CB3", 180));
+        dm.add(new DataModel("One", "#00ffff", 20));
+        dm.add(new DataModel("Two", "#74EEA1", 15));
+        dm.add(new DataModel("Three", "#f2002f", 65));
 
-        lgv.setData(dm, 999);
+        lgv.setData(dm, 100);
     }
 }

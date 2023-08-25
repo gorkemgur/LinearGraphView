@@ -1,6 +1,5 @@
 package com.broooapps.lineargraphview2;
 
-
 import android.animation.*;
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -32,7 +31,7 @@ public class LinearGraphView extends View {
 
     private Path boundaryPath;
 
-    private float cornerRadius = 16;
+    private float cornerRadius = 10;
     // width of the view
     private int width;
 
@@ -89,8 +88,7 @@ public class LinearGraphView extends View {
 
         // cornerRadius = a.getDimensionPixelSize(R.styleable.LinearGraphView_lgv_corner_radius, 16);
         // strokeWidth = a.getDimensionPixelSize(R.styleable.LinearGraphView_lgv_stroke_width, 2);
-        borderColor = a.getColor(R.styleable.LinearGraphView_lgv_border_color, getResources().getColor(R.color.linear_graph_border));
-        strokeAnimDuration = a.getInt(R.styleable.LinearGraphView_lgv_border_anim_duration, 1000);
+        borderColor = Color.TRANSPARENT;
 
         a.recycle();
     }
@@ -102,7 +100,7 @@ public class LinearGraphView extends View {
 
         dataRect = new ArrayList<>();
         mBgPaint = new Paint();
-        mBgPaint.setStrokeWidth(strokeWidth);
+        mBgPaint.setStrokeWidth(0);
         mBgPaint.setStyle(Paint.Style.STROKE);
         mBgPaint.setAntiAlias(true);
         mBgPaint.setColor(borderColor);
@@ -186,7 +184,7 @@ public class LinearGraphView extends View {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 
         width = getMeasuredWidth();
-        height = measureDimension(LinearGraphView.convertDpToPixel(16, contextWeakReference.get()), heightMeasureSpec);
+        height = measureDimension(LinearGraphView.convertDpToPixel(15, contextWeakReference.get()), heightMeasureSpec);
         setMeasuredDimension(width, height);
 
         boundaryPath = RoundedRect(2, 2, width - 2, height - 2, cornerRadius, cornerRadius);
